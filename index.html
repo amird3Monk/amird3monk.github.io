@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamza Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio - design, machining and teaching.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>:root{--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);padding-top:var(--safe-t);padding-bottom:var(--safe-b);color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<!--
+================================================================================
+  HOW TO EDIT THIS PAGE
+
+  It is one file. Open it in any text editor, change the words between the
+  tags, save, and re-upload. Nothing is compiled and there is no build step.
+
+  Things you will want to change, in order:
+
+  1. YOUR NAME        search for   class="brand"        (top of the page)
+                      and for      <title>              (the browser tab)
+  2. CONTACT DETAILS  search for   id="contact"
+  3. IMAGES           search for   IMAGE SLOT
+                      put your files in the  assets/  folder
+  4. 3D MODEL         save your export as  assets/conveyor.glb
+                      the viewer picks it up on its own
+  5. REMOVE A SECTION delete everything from  <section ...>  to  </section>
+                      and delete its link in the nav at the top
+  6. COLOURS          the :root block below &#8212; change a value once and it
+                      changes everywhere it is used
+
+  Leave the <style> and <script> blocks alone unless you know what they do.
+================================================================================
+-->
+
+<style>
+/* Layout: a drawing sheet - framed zones, data set in mono, title block at the foot */
+:root{
+  --paper:#F6F8FA;
+  --panel:#FFFFFF;
+  --panel-2:#EEF2F6;
+  --ink:#161C24;
+  --ink-soft:#5B6878;
+  --rule:#D2DAE4;
+  --blue:#1F5C9E;        /* engineer's marking blue */
+  --blue-wash:#E7F0F9;
+  --brass:#8A6310;
+  --shadow:0 1px 2px rgba(22,28,36,.06), 0 8px 24px rgba(22,28,36,.05);
+  --f-display:"Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11161C;
+    --panel:#19202A;
+    --panel-2:#212A36;
+    --ink:#E7EDF4;
+    --ink-soft:#95A3B5;
+    --rule:#2A3542;
+    --blue:#6BA9E8;
+    --blue-wash:#16293D;
+    --brass:#D9A93F;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11161C;
+  --panel:#19202A;
+  --panel-2:#212A36;
+  --ink:#E7EDF4;
+  --ink-soft:#95A3B5;
+  --rule:#2A3542;
+  --blue:#6BA9E8;
+  --blue-wash:#16293D;
+  --brass:#D9A93F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1120px;
+  margin-inline:auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.band{background:var(--paper)}
+.band--panel{background:var(--panel-2)}
+section.band>.wrap{padding-block:clamp(48px,7vw,92px)}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.04;text-wrap:balance;margin:0;letter-spacing:.005em}
+h1{font-size:clamp(40px,7.4vw,78px);text-transform:uppercase}
+h2{font-size:clamp(28px,4.4vw,44px);text-transform:uppercase}
+h3{font-size:clamp(19px,2.3vw,23px)}
+p{margin:0}
+a{color:var(--blue)}
+
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0;
+}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:62ch}
+.prose{max-width:66ch;display:flex;flex-direction:column;gap:14px}
+.prose p{color:var(--ink-soft)}
+.prose strong{color:var(--ink);font-weight:600}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+header.site{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+header.site .wrap{display:flex;align-items:center;gap:18px;padding-block:11px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.04em}
+.brand span{color:var(--blue)}
+nav.site{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav.site a{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);text-decoration:none;padding:7px 10px;border-radius:4px;
+}
+nav.site a:hover{color:var(--ink);background:var(--panel-2)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:3px}
+
+/* ---------- hero ---------- */
+.hero>.wrap{padding-block:clamp(44px,6vw,76px) clamp(28px,4vw,44px)}
+.hero h1{margin-block:14px 18px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  margin-top:34px;border-radius:5px;overflow:hidden;
+}
+.fact{background:var(--panel);padding:15px 17px;min-width:0}
+.fact dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.fact dd{margin:5px 0 0;font-family:var(--f-display);font-size:21px;font-weight:600;line-height:1.2}
+.fact dd small{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:400;color:var(--ink-soft);line-height:1.45;margin-top:3px}
+
+/* ---------- viewer ---------- */
+.viewer-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.stage{
+  position:relative;background:var(--panel);border:1px solid var(--rule);
+  border-radius:6px;overflow:hidden;box-shadow:var(--shadow);
+}
+.stage canvas{display:block;width:100%;height:100%}
+.canvas-box{aspect-ratio:16/10;max-width:100%;width:100%}
+@media (max-width:640px){.canvas-box{aspect-ratio:4/3}}
+.stage-note{
+  position:absolute;left:12px;bottom:10px;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-soft);background:color-mix(in srgb, var(--panel) 80%, transparent);
+  padding:4px 8px;border-radius:4px;pointer-events:none;
+}
+.stage-tools{
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+  padding:10px 12px;border-top:1px solid var(--rule);background:var(--panel-2);
+}
+button.tool, label.tool{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--panel);color:var(--ink);border:1px solid var(--rule);
+  padding:7px 12px;border-radius:4px;cursor:pointer;line-height:1.3;
+}
+button.tool:hover, label.tool:hover{border-color:var(--blue);color:var(--blue)}
+.tool-hint{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-soft);margin-left:auto}
+input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+
+.spec{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:0;
+}
+.spec div{background:var(--panel);padding:12px 14px;min-width:0}
+.spec dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+.spec dd{margin:4px 0 0;font-family:var(--f-mono);font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- decisions ---------- */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:34px}
+.card{
+  background:var(--panel);border:1px solid var(--rule);border-radius:6px;
+  padding:20px 21px;display:flex;flex-direction:column;gap:11px;min-width:0;
+}
+.card .tag{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);
+}
+.card p{color:var(--ink-soft);font-size:15px}
+.card .figure{
+  font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;
+  background:var(--blue-wash);color:var(--ink);border-left:2px solid var(--blue);
+  padding:9px 12px;border-radius:0 4px 4px 0;margin-top:auto;
+}
+
+/* ---------- tables ---------- */
+.table-scroll{overflow-x:auto;margin-top:26px;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:430px;font-size:14.5px}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--rule)}
+tbody tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* ---------- media slots ---------- */
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:30px}
+.slot{
+  border:1px dashed var(--rule);border-radius:6px;background:var(--panel);
+  aspect-ratio:4/3;max-width:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:7px;padding:18px;text-align:center;
+}
+.slot .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}
+.slot .d{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.shot{margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:6px;overflow:hidden;min-width:0}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;color:var(--ink-soft);padding:9px 12px;border-top:1px solid var(--rule)}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px;align-items:start}
+.list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}
+.list li{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:baseline;
+  padding:12px 0;border-bottom:1px solid var(--rule);min-width:0;
+}
+.list li:last-child{border-bottom:0}
+.list .t{font-weight:500}
+.list .s{display:block;font-size:13.5px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.list .w{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.chip{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;
+  border:1px solid var(--rule);background:var(--panel);
+  padding:5px 10px;border-radius:999px;color:var(--ink-soft);
+}
+.chip.on{border-color:var(--blue);color:var(--blue);background:var(--blue-wash)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:28px}
+.contact-card{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:18px 19px;min-width:0}
+.contact-card .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.contact-card .v{margin-top:7px;font-size:15px;word-break:break-word}
+.edit{
+  display:inline-block;font-family:var(--f-mono);font-size:13px;
+  background:var(--blue-wash);color:var(--blue);border:1px dashed var(--blue);
+  padding:2px 8px;border-radius:4px;
+}
+
+/* ---------- title block ---------- */
+footer.sheet{border-top:2px solid var(--ink);background:var(--panel)}
+.tb{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:1px;background:var(--rule);
+}
+.tb div{background:var(--panel);padding:13px 15px;min-width:0}
+.tb dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.tb dd{margin:4px 0 0;font-family:var(--f-mono);font-size:13px}
+.colophon{padding-block:16px;font-size:12.5px;color:var(--ink-soft)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">Amir Hamza<span>.</span></div>
+    <nav class="site">
+      <a href="#machine">Machine</a>
+      <a href="#project">Project</a>
+      <a href="#workshop">Workshop</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="band hero">
+  <div class="wrap">
+    <p class="eyebrow">London &nbsp;&#183;&nbsp; Mechanical engineering &nbsp;&#183;&nbsp; Machining &amp; manufacturing</p>
+    <h1>I design machines,<br>cut metal, and<br><em>teach both.</em></h1>
+    <p class="lede">
+      MSc Mechanical Engineering from Kingston University London, BSc from RUET, and bench
+      time on centre lathes and milling machines. I am looking for teaching and lecturing
+      work in machining and manufacturing, alongside a research route.
+    </p>
+
+    <dl class="facts">
+      <div class="fact"><dt>Postgraduate</dt><dd>MSc Distinction<small>Mechanical Engineering, Kingston University London</small></dd></div>
+      <div class="fact"><dt>Undergraduate</dt><dd>BSc<small>Mechanical Engineering, RUET, Bangladesh</small></dd></div>
+      <div class="fact"><dt>Shop floor</dt><dd>BITAC 2022<small>Graduate trainee &#8212; centre lathe, milling</small></dd></div>
+      <div class="fact"><dt>Teaching</dt><dd>Since 2025<small>GCSE Maths one to one; peer tutoring at Kingston</small></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--panel" id="machine">
+  <div class="wrap">
+    <div class="viewer-head">
+      <div>
+        <p class="eyebrow">Interactive &#8212; drag to orbit</p>
+        <h2>A machine you can turn</h2>
+      </div>
+      <p class="lede" style="font-size:15px;max-width:44ch">
+        A 3 metre slider-bed belt conveyor, designed from a brief. The drums turn at
+        92.1&nbsp;rpm and the crate travels at 0.482&nbsp;m/s &#8212; the figures the drive
+        calculation produced, running in real time.
+      </p>
+    </div>
+
+    <div class="stage">
+      <div class="canvas-box" id="stage"></div>
+      <p class="stage-note" id="stageNote">Schematic &#8212; built to the design dimensions</p>
+      <div class="stage-tools">
+        <button class="tool" id="btnPlay" type="button">Pause</button>
+        <button class="tool" id="btnView" type="button">Reset view</button>
+        <label class="tool" for="glbFile">Load a .glb model</label>
+        <input type="file" id="glbFile" accept=".glb,.gltf,model/gltf-binary,model/gltf+json">
+        <span class="tool-hint" id="toolHint">Drag &#183; orbit &nbsp; Scroll &#183; zoom</span>
+      </div>
+      <dl class="spec">
+        <div><dt>Centres</dt><dd>3000 mm</dd></div>
+        <div><dt>Belt width</dt><dd>400 mm</dd></div>
+        <div><dt>Working height</dt><dd>800 mm</dd></div>
+        <div><dt>Live load</dt><dd>150 kg</dd></div>
+        <div><dt>Drive</dt><dd>0.75 kW</dd></div>
+        <div><dt>Belt speed</dt><dd>0.482 m/s</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="project">
+  <div class="wrap">
+    <p class="eyebrow">Selected project</p>
+    <h2>Slider-bed belt conveyor</h2>
+    <div class="prose" style="margin-top:18px">
+      <p>
+        A unit-load conveyor for boxes and totes: 3 m between pulley centres, 400 mm belt,
+        800 mm to the belt surface, 150 kg of live load, driven from the discharge end.
+        I took it from a written brief through drive selection, shaft and key design,
+        component selection from catalogues, a full 3D assembly and detail drawings.
+      </p>
+      <p>
+        The parts below are the decisions I would defend in an interview. Each one came
+        from a calculation or a constraint, not from a preference.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <article class="card">
+        <span class="tag">Shaft design</span>
+        <h3>Sized by deflection, not stress</h3>
+        <p>
+          The belt supplier limits pulley shaft deflection to <strong>y &#8804; 0.001&#183;b&#8320;</strong>,
+          which at a 400&nbsp;mm belt is 0.40&nbsp;mm. That limit, not bending stress,
+          is what sets the shaft diameter. A plain &#216;30 shaft passes every stress check
+          and still fails the belt &#8212; it would track off the pulley.
+        </p>
+        <p class="figure">&#216;35 &#8594; 0.261 mm &#183; &#216;30 &#8594; 0.484 mm &#183; limit 0.40 mm</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Drive &#183; friction</span>
+        <h3>The belt is the torque fuse</h3>
+        <p>
+          Drive is by friction over a 180&#176; wrap, so the capstan equation sets the ceiling:
+          <strong>T&#8321;/T&#8322; &#8804; e^(&#956;&#952;)</strong>. With &#956; = 0.15 on a bare steel drum that is 1.60,
+          and the screw take-up must hold enough slack tension to stay inside it. It also
+          means the belt slips at about 56&nbsp;N&#183;m &#8212; well below the 195&nbsp;N&#183;m the
+          gearbox can deliver, so the drivetrain protects itself.
+        </p>
+        <p class="figure">T&#8322; required 748 N &#183; take-up gives 1039 N &#183; margin 1.39</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Structure</span>
+        <h3>A bearing flange chose the section</h3>
+        <p>
+          The frame is PFC 180 and not PFC 150 for one reason: the flanged bearing unit
+          needs at least <strong>108&nbsp;mm of flat web</strong> to bolt to. PFC 180
+          offers 135&nbsp;mm of clear web, PFC 150 only about 100. The bought component
+          set the structural section, which is usually the way round it happens.
+        </p>
+        <p class="figure">Flange 108 &#215; 108 &#183; clear web 135 &#183; bolt pitch 82.5</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Detail design</span>
+        <h3>A 12 mm radius moved a plate</h3>
+        <p>
+          A clash check found the take-up plate overlapping both frames by 45.9&nbsp;mm&#179;.
+          Not a modelling slip &#8212; the channel's root radius means the clear flat web stops
+          at Y &#177;62.5, so a 130&nbsp;mm plate was resting on the fillet instead of flat
+          steel. In the workshop that is a plate that rocks, with a gap under the weld.
+          Reducing it to 120&nbsp;mm clears the radius by 2.5&nbsp;mm and keeps
+          13.25&nbsp;mm of edge distance at the bolt slots.
+        </p>
+        <p class="figure">Hand integration of the sliver: 45.9 mm&#179; &#8212; matched to 3 figures</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Drawing practice</span>
+        <h3>The crown is given as diameters</h3>
+        <p>
+          A crowned pulley keeps the belt tracking. Writing <em>&#8220;crown 0.4&#8221;</em> invites
+          half a workshop to read a radius and half a diameter. The drawing instead states
+          three diameters at three stated stations, so the ambiguity cannot survive
+          &#8212; and the crown is turned in the same setup as the outside diameter.
+        </p>
+        <p class="figure">&#216;100.00 over the central 150 band &#183; &#216;99.20 at each face edge</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Manufacture</span>
+        <h3>Machine after welding, in one setup</h3>
+        <p>
+          The pulley is a weldment: tube, two end discs, two hubs. Bore the hubs first and
+          weld after, and the two bores are no longer coaxial, the drum will not slide onto
+          the shaft, and the face runs out of true. Boring and skimming after welding,
+          between centres, fixes all three because bore and OD are cut on the same axis.
+          The 0.8&nbsp;mm per side skim allowance exists to machine the distortion out.
+        </p>
+        <p class="figure">&#216;35 H7 bore &#183; 0.05 TIR face runout &#183; Ra 1.6 bore</p>
+      </article>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <caption class="eyebrow" style="padding:13px 15px;text-align:left">Drive chain, end to end</caption>
+        <thead>
+          <tr><th>Stage</th><th>Mechanism</th><th>Figure</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Motor to gearbox</td><td>Helical reduction, 15.63:1</td><td class="num">1440 &#8594; 92.1 rpm</td></tr>
+          <tr><td>Gearbox to shaft</td><td>Jaw coupling, 8 &#215; 7 parallel key</td><td class="num">22.5 N&#183;m</td></tr>
+          <tr><td>Shaft to drum</td><td>10 &#215; 8 &#215; 40 parallel key, both ends</td><td class="num">84.4 MPa bearing</td></tr>
+          <tr><td>Drum to belt</td><td>Friction, 180&#176; wrap</td><td class="num">margin 1.39</td></tr>
+          <tr><td>Belt to load</td><td>Friction, plastic crate on fabric</td><td class="num">0.482 m/s</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="eyebrow" style="margin-top:38px">Drawings and renders</p>
+    <div class="slots">
+
+      <!-- IMAGE SLOT 01 &#8212; general arrangement drawing.
+           TO USE IT: put the file in assets/, delete the <div class="slot">
+           line below, and remove the <!- - and - -> around the <figure>. -->
+      <!--
+      <figure class="shot">
+        <img src="assets/ga-drawing.png" alt="General arrangement drawing of the conveyor">
+        <figcaption>General arrangement &#8212; 3 m centres, 800 mm working height</figcaption>
+      </figure>
+      -->
+      <div class="slot"><span class="k">Slot 01</span><span class="d">General arrangement drawing<br>Export the GA sheet as PNG</span></div>
+
+      <!-- IMAGE SLOT 02 &#8212; drive pulley fabrication drawing. -->
+      <!--
+      <figure class="shot">
+        <img src="assets/pulley-drawing.png" alt="Drive pulley fabrication drawing, section A&#8211;A">
+        <figcaption>Drive pulley weldment &#8212; section A&#8211;A, crown detail, weld symbols</figcaption>
+      </figure>
+      -->
+      <div class="slot"><span class="k">Slot 02</span><span class="d">Drive pulley fabrication drawing<br>Section A&#8211;A, crown detail, weld symbols</span></div>
+
+      <!-- IMAGE SLOT 03 &#8212; rendered assembly. -->
+      <!--
+      <figure class="shot">
+        <img src="assets/render-assembly.png" alt="Rendered view of the assembled conveyor">
+        <figcaption>Assembly, three-quarter view from the drive end</figcaption>
+      </figure>
+      -->
+      <div class="slot"><span class="k">Slot 03</span><span class="d">Rendered assembly<br>Three-quarter view from the drive end</span></div>
+
+      <!-- IMAGE SLOT 04 &#8212; drive end close-up. -->
+      <!--
+      <figure class="shot">
+        <img src="assets/render-drive-end.png" alt="Close-up of the drive end: coupling, bearing and motor plate">
+        <figcaption>Drive end &#8212; ROTEX coupling, flanged bearing, motor plate</figcaption>
+      </figure>
+      -->
+      <div class="slot"><span class="k">Slot 04</span><span class="d">Drive end close-up<br>Coupling, bearing, motor plate</span></div>
+
+    </div>
+  </div>
+</section>
+
+<section class="band band--panel" id="workshop">
+  <div class="wrap">
+    <p class="eyebrow">Hands on</p>
+    <h2>Workshop and manufacturing</h2>
+    <div class="split" style="margin-top:26px">
+      <div class="prose">
+        <p>
+          I trained as a graduate trainee at <strong>BITAC</strong> in 2022, working on
+          centre lathes and milling machines, and did turning and milling through my BSc
+          laboratories. That is the part of engineering I most want to teach, because it
+          is where drawings stop being abstract.
+        </p>
+        <p>
+          Design work and machining answer each other. Knowing that a bore and an outside
+          diameter should be cut in one setup, or why a keyway is dimensioned from the
+          opposite bore wall so an inspector can reach it with a slip gauge, comes from
+          having stood at the machine.
+        </p>
+      </div>
+      <ul class="list">
+        <li><span class="t">Centre lathe<span class="s">Turning, facing, boring, parting, thread cutting</span></span><span class="w">BITAC &#183; BSc lab</span></li>
+        <li><span class="t">Milling<span class="s">Face and end milling, slotting, workholding and setting</span></span><span class="w">BITAC &#183; BSc lab</span></li>
+        <li><span class="t">Metrology<span class="s">Micrometer, vernier, dial gauge, slip gauges, ISO fits</span></span><span class="w">Applied</span></li>
+        <li><span class="t">Fabrication practice<span class="s">Weld sequencing, distortion control, machining after welding</span></span><span class="w">Design side</span></li>
+        <li><span class="t">Engineering drawing<span class="s">BS 8888 practice &#8212; tolerances, GD&amp;T, surface finish, weld symbols</span></span><span class="w">Applied</span></li>
+      </ul>
+    </div>
+
+    <p class="eyebrow" style="margin-top:36px">Software</p>
+    <div class="chips">
+      <span class="chip on">Fusion 360</span>
+      <span class="chip on">SolidWorks</span>
+      <span class="chip">ANSYS Fluent</span>
+      <span class="chip">ICEM CFD</span>
+      <span class="chip">Engineering drawing</span>
+      <span class="chip">GD&amp;T</span>
+      <span class="chip">DFM / DFA</span>
+      <span class="chip">Technical documentation</span>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="teaching">
+  <div class="wrap">
+    <p class="eyebrow">Teaching</p>
+    <h2>Explaining is the job</h2>
+    <div class="split" style="margin-top:26px">
+      <div class="prose">
+        <p>
+          I have tutored <strong>GCSE Maths one to one since 2025</strong> and did peer
+          tutoring during my MSc at Kingston. I hold a standard DBS, and an enhanced DBS
+          including the Children's Barred List is in progress.
+        </p>
+        <p>
+          The conveyor above is also a teaching portfolio. Every decision on it is written
+          down with the reasoning attached &#8212; why the shaft steps up, why the section was
+          chosen by a bought component, why a crown is dimensioned one way and not another.
+          A student can follow that; a finished model alone teaches nothing.
+        </p>
+        <p>
+          I am looking for lecturing and instructor work in machining and manufacturing,
+          and I am interested in a PhD route alongside it.
+        </p>
+      </div>
+      <ul class="list">
+        <li><span class="t">GCSE Mathematics<span class="s">One to one, since 2025</span></span><span class="w">Ongoing</span></li>
+        <li><span class="t">Peer tutoring<span class="s">Kingston University, during MSc</span></span><span class="w">2025&#8211;26</span></li>
+        <li><span class="t">Standard DBS<span class="s">Enhanced with Barred List in progress</span></span><span class="w">Held</span></li>
+        <li><span class="t">Written teaching material<span class="s">Drawing specifications, design rationale, build documentation</span></span><span class="w">Portfolio</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--panel" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Contact</h2>
+    <p class="lede" style="margin-top:14px">
+      Replace the marked fields below with your own details before you share this page.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="k">Email</div><div class="v"><span class="edit">your.name@email.com</span></div></div>
+      <div class="contact-card"><div class="k">LinkedIn</div><div class="v"><span class="edit">linkedin.com/in/&#8230;</span></div></div>
+      <div class="contact-card"><div class="k">Location</div><div class="v">London, United Kingdom</div></div>
+      <div class="contact-card"><div class="k">CV</div><div class="v"><span class="edit">link to a PDF</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="sheet">
+  <div class="wrap" style="padding-left:0;padding-right:0">
+    <dl class="tb">
+      <div><dt>Drawn by</dt><dd>Hamza</dd></div>
+      <div><dt>Subject</dt><dd>Belt conveyor, 3 m</dd></div>
+      <div><dt>Scale</dt><dd>Interactive</dd></div>
+      <div><dt>Projection</dt><dd>First angle</dd></div>
+      <div><dt>Units</dt><dd>mm unless stated</dd></div>
+      <div><dt>Revision</dt><dd>A</dd></div>
+    </dl>
+  </div>
+  <div class="wrap colophon">
+    Figures on this page come from the design calculations for the conveyor shown above.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+(function () {
+  var host = document.getElementById('stage');
+  var note = document.getElementById('stageNote');
+  var hint = document.getElementById('toolHint');
+  if (!host || typeof THREE === 'undefined') {
+    if (note) { note.textContent = '3D viewer could not load'; }
+    return;
+  }
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(36, 16 / 10, 0.05, 80);
+  var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  host.appendChild(renderer.domElement);
+
+  scene.add(new THREE.HemisphereLight(0xdfe8f5, 0x3a4150, 0.95));
+  var key = new THREE.DirectionalLight(0xffffff, 0.85);
+  key.position.set(2.4, 3.2, 2.0);
+  scene.add(key);
+  var fill = new THREE.DirectionalLight(0xffffff, 0.3);
+  fill.position.set(-2.0, 1.2, -1.6);
+  scene.add(fill);
+
+  // ---- materials -------------------------------------------------------
+  var steel  = new THREE.MeshStandardMaterial({ color: 0x9aa6b4, metalness: 0.55, roughness: 0.5 });
+  var dark   = new THREE.MeshStandardMaterial({ color: 0x3c424b, metalness: 0.3,  roughness: 0.75 });
+  var belt   = new THREE.MeshStandardMaterial({ color: 0x2b3038, metalness: 0.05, roughness: 0.9 });
+  var blue   = new THREE.MeshStandardMaterial({ color: 0x1f5c9e, metalness: 0.2,  roughness: 0.55 });
+  var crate  = new THREE.MeshStandardMaterial({ color: 0x3f7fc4, metalness: 0.05, roughness: 0.65 });
+  var brass  = new THREE.MeshStandardMaterial({ color: 0xc08a24, metalness: 0.6,  roughness: 0.4 });
+
+  // Everything below is modelled in metres from the real design dimensions:
+  // 3000 mm centres, \u00d8100 drums, 450 face, 400 belt, 800 mm to the belt surface.
+  var M = {
+    centres: 3.0, drumR: 0.050, drumFace: 0.450,
+    beltW: 0.400, beltT: 0.0021,
+    frameLen: 3.250, frameX0: -0.125, frameTop: 0.085, frameBot: -0.095,
+    frameZ: 0.2825, flange: 0.075,
+    legZ: 0.2825, legS: 0.050, floorY: -0.7479,
+    bedTop: 0.050, bedT: 0.003
+  };
+
+  function box(w, h, d, x, y, z, mat) {
+    var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+    m.position.set(x, y, z);
+    return m;
+  }
+  function tube(r, len, x, y, z, mat, open) {
+    var g = new THREE.CylinderGeometry(r, r, len, 48, 1, !!open);
+    var m = new THREE.Mesh(g, mat);
+    m.rotation.x = Math.PI / 2;      // axis along Z, as the real shafts are
+    m.position.set(x, y, z);
+    return m;
+  }
+
+  var machine = new THREE.Group();
+  var schematic = new THREE.Group();
+  machine.add(schematic);
+  scene.add(machine);
+
+  var cx = M.frameX0 + M.frameLen / 2;
+
+  // side frames, PFC 180
+  [1, -1].forEach(function (s) {
+    schematic.add(box(M.frameLen, M.frameTop - M.frameBot, M.flange,
+      cx, (M.frameTop + M.frameBot) / 2, s * M.frameZ, steel));
+  });
+
+  // legs, SHS 50 x 50 x 3
+  [0, 2.85].forEach(function (lx) {
+    [1, -1].forEach(function (s) {
+      schematic.add(box(M.legS, M.frameBot - M.floorY, M.legS,
+        lx, (M.frameBot + M.floorY) / 2, s * M.legZ, dark));
+    });
+  });
+
+  // cross members and slider bed
+  [0.15, 0.75, 1.5, 2.25, 2.85].forEach(function (mx) {
+    schematic.add(box(0.040, 0.040, 0.490, mx, 0.027, 0, dark));
+  });
+  schematic.add(box(2.880, M.bedT, 0.490, 1.5, M.bedTop - M.bedT / 2, 0, steel));
+
+  // drive and tail drums, with a rotation marker so the spin is visible
+  var drums = [];
+  [0, M.centres].forEach(function (dx) {
+    var d = tube(M.drumR, M.drumFace, dx, 0, 0, steel);
+    schematic.add(d);
+    drums.push(d);
+    var mark = new THREE.Mesh(new THREE.BoxGeometry(0.004, 0.004, M.drumFace * 0.98), brass);
+    mark.position.set(0, M.drumR, 0);
+    d.add(new THREE.Group().add(mark));
+    d.userData.mark = mark;
+  });
+
+  // belt \u2014 two straight runs plus a wrap at each end
+  var ri = M.drumR, ro = M.drumR + M.beltT;
+  schematic.add(box(M.centres, M.beltT, M.beltW, M.centres / 2,  ri + M.beltT / 2, 0, belt));
+  schematic.add(box(M.centres, M.beltT, M.beltW, M.centres / 2, -ri - M.beltT / 2, 0, belt));
+  [0, M.centres].forEach(function (dx) {
+    schematic.add(tube(ro - M.beltT / 2, M.beltW, dx, 0, 0,
+      new THREE.MeshStandardMaterial({ color: 0x2b3038, roughness: 0.9, side: THREE.DoubleSide }), true));
+  });
+
+  // motor plate and gearmotor at the drive end
+  schematic.add(box(0.170, 0.015, 0.334, 0, -0.1025, 0.418, steel));
+  schematic.add(box(0.150, 0.150, 0.150, 0, -0.015, 0.470, blue));
+  schematic.add(tube(0.070, 0.280, 0, -0.015, 0.680, dark));
+
+  // the design load: a 600 x 400 x 300 Euro container on the belt
+  var tote = box(0.600, 0.300, 0.400, 2.30, ro + 0.150, 0, crate);
+  schematic.add(tote);
+
+  // recentre so orbiting feels right
+  var bbox = new THREE.Box3().setFromObject(machine);
+  var mid = bbox.getCenter(new THREE.Vector3());
+  machine.position.sub(mid);
+
+  var controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.minDistance = 1.2;
+  controls.maxDistance = 12;
+  controls.target.set(0, 0, 0);
+
+  function home() {
+    camera.position.set(2.5, 1.5, 2.6);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+  home();
+
+  function resize() {
+    var w = host.clientWidth, h = host.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ---- motion: the real kinematics ------------------------------------
+  // 92.1 rpm at the drum, \u00d8100, so 0.482 m/s and 314.16 mm of travel per turn.
+  var SPEED = Math.PI * 0.100 * 92.1 / 60;      // 0.482 m/s
+  var OMEGA = SPEED / M.drumR;                   // rad/s
+  var running = !reduce;
+  var toteX0 = 2.30, travel = 2.25;
+  var clock = new THREE.Clock();
+
+  var btnPlay = document.getElementById('btnPlay');
+  btnPlay.textContent = running ? 'Pause' : 'Play';
+  btnPlay.addEventListener('click', function () {
+    running = !running;
+    btnPlay.textContent = running ? 'Pause' : 'Play';
+  });
+  document.getElementById('btnView').addEventListener('click', home);
+
+  function tick() {
+    requestAnimationFrame(tick);
+    var dt = clock.getDelta();
+    if (running && schematic.visible) {
+      for (var i = 0; i < drums.length; i++) drums[i].rotation.y -= OMEGA * dt;
+      tote.position.x -= SPEED * dt;
+      if (tote.position.x < toteX0 - travel) tote.position.x = toteX0;
+    }
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  tick();
+
+  // ---- load your own model --------------------------------------------
+  var loaded = null;
+  function showModel(gltf, label) {
+    if (loaded) { machine.remove(loaded); }
+    loaded = gltf.scene || gltf.scenes[0];
+    var b = new THREE.Box3().setFromObject(loaded);
+    var size = b.getSize(new THREE.Vector3());
+    var span = Math.max(size.x, size.y, size.z) || 1;
+    loaded.scale.setScalar(3.4 / span);                 // fit the frame
+    b.setFromObject(loaded);
+    loaded.position.sub(b.getCenter(new THREE.Vector3()));
+    machine.position.set(0, 0, 0);
+    schematic.visible = false;
+    machine.add(loaded);
+    note.textContent = label;
+    home();
+  }
+
+  function loadFrom(url, label) {
+    try {
+      new THREE.GLTFLoader().load(url, function (g) { showModel(g, label); },
+        undefined, function () { /* no file there \u2014 keep the schematic */ });
+    } catch (e) { /* loader unavailable */ }
+  }
+
+  // If a conveyor.glb is published beside this page, it replaces the schematic.
+  loadFrom('assets/conveyor.glb', 'Model \u2014 assets/conveyor.glb');
+
+  var input = document.getElementById('glbFile');
+  input.addEventListener('change', function () {
+    var f = input.files && input.files[0];
+    if (!f) return;
+    var url = URL.createObjectURL(f);
+    note.textContent = 'Loading ' + f.name + '\u2026';
+    loadFrom(url, 'Model \u2014 ' + f.name);
+  });
+
+  // drag a .glb straight onto the viewer
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    host.addEventListener(ev, function (e) { e.preventDefault(); hint.textContent = 'Drop to load'; });
+  });
+  host.addEventListener('dragleave', function () { hint.textContent = 'Drag \u00b7 orbit   Scroll \u00b7 zoom'; });
+  host.addEventListener('drop', function (e) {
+    e.preventDefault();
+    hint.textContent = 'Drag \u00b7 orbit   Scroll \u00b7 zoom';
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f) return;
+    loadFrom(URL.createObjectURL(f), 'Model \u2014 ' + f.name);
+  });
+})();
+</script>
+</body>
+</html>
